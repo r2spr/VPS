@@ -203,12 +203,12 @@ def log(update, context):
 
 
 help_string = '''
-<b><a href='https://github.com/weebzone/WZML'>WeebZone</a></b> - The Ultimate Telegram MIrror-Leech Bot to Upload Your File & Link in Google Drive & Telegram
+<b>𝔗𝔥𝔢 𝔘𝔩𝔱𝔦𝔪𝔞𝔱𝔢 𝔗𝔢𝔩𝔢𝔤𝔯𝔞𝔪 𝔐ℑ𝔯𝔯𝔬𝔯-𝔏𝔢𝔢𝔠𝔥 𝔅𝔬𝔱 𝔱𝔬 𝔘𝔭𝔩𝔬𝔞𝔡 𝔜𝔬𝔲𝔯 𝔉𝔦𝔩𝔢 & 𝔏𝔦𝔫𝔨 𝔦𝔫 𝔊𝔬𝔬𝔤𝔩𝔢 𝔇𝔯𝔦𝔳𝔢 & 𝔗𝔢𝔩𝔢𝔤𝔯𝔞𝔪 \t<a href='https://t.me/HombaleCinemas'>HombaleCinemas</a></b>
 Choose a help category:
 '''
 
 help_string_telegraph_user = f'''
-<b><u>👤 User Commands</u></b>
+<b><u>👤 𝒰𝓈ℯ𝓇 𝒞ℴ𝓂𝓂𝒶𝓃𝒹𝓈</u></b>
 <br><br>
 • <b>/{BotCommands.HelpCommand}</b>: To get this message
 <br><br>
@@ -284,7 +284,7 @@ help_user = telegraph.create_page(
     content=help_string_telegraph_user)["path"]
 
 help_string_telegraph_admin = f'''
-<b><u>🛡️ Admin Commands</u></b>
+<b><u>👩‍💻𝒪𝓌𝓃ℯ𝓇 𝒞ℴ𝓂𝓂𝒶𝓃𝒹𝓈</u></b>
 <br><br>
 • <b>/{BotCommands.PingCommand}</b>: Check how long it takes to Ping the Bot
 <br><br>
@@ -320,13 +320,14 @@ def bot_help(update, context):
         button.buildbutton("👤 User", f"https://telegra.ph/{help_user}")
         button.buildbutton("🛡️ Admin", f"https://telegra.ph/{help_admin}")
     else:
-        button.buildbutton("User", f"https://telegra.ph/{help_user}")
-        button.buildbutton("Admin", f"https://telegra.ph/{help_admin}")
+        button.buildbutton("𝔘𝔰𝔢𝔯", f"https://telegra.ph/{help_user}")
+        button.buildbutton("𝔒𝔴𝔫𝔢𝔯", f"https://telegra.ph/{help_admin}")
     sendMarkup(help_string, context.bot, update.message, button.build_menu(2))
 
 
 if config_dict['SET_BOT_COMMANDS']:
     botcmds = [
+        (f'{BotCommands.StartCommand[0]}', 'Start'),
         (f'{BotCommands.MirrorCommand[0]}', 'Mirror'),
         (f'{BotCommands.ZipMirrorCommand[0]}','Mirror and upload as zip'),
         (f'{BotCommands.UnzipMirrorCommand[0]}','Mirror and extract files'),
@@ -427,17 +428,14 @@ def main():
                     msg += f"⌚TIME: {time}\n"
                     msg += f"🌐TIMEZONE: {timez}\n"
                 else:
-                    msg = f"😎Bot Restarted!\n"
-                    msg += f"📅DATE: {date}\n"
-                    msg += f"⌚TIME: {time}\n"
-                    msg += f"🌐TIMEZONE: {timez}"
+                    msg = f"ℛℯ𝓈𝓉𝒶𝓇𝓉ℯ𝒹 𝓈𝓊𝒸𝒸ℯ𝓈𝓈𝒻𝓊𝓁𝓁𝓎"
 
                 for tag, links in data.items():
                     msg += f"\n{tag}: "
                     for index, link in enumerate(links, start=1):
                         msg += f" <a href='{link}'>{index}</a> |"
                         if len(msg.encode()) > 4000:
-                            if '😎Restarted successfully❗' in msg and cid == chat_id:
+                            if 'ℛℯ𝓈𝓉𝒶𝓇𝓉ℯ𝒹 𝓈𝓊𝒸𝒸ℯ𝓈𝓈𝒻𝓊𝓁𝓁𝓎' in msg and cid == chat_id:
                                 try:
                                     bot.editMessageText(msg, chat_id, msg_id, parse_mode='HTML', disable_web_page_preview=True)
                                 except:
@@ -449,7 +447,7 @@ def main():
                                 except Exception as e:
                                     LOGGER.error(e)
                             msg = ''
-                if '😎Restarted successfully❗' in msg and cid == chat_id:
+                if 'ℛℯ𝓈𝓉𝒶𝓇𝓉ℯ𝒹 𝓈𝓊𝒸𝒸ℯ𝓈𝓈𝒻𝓊𝓁𝓁𝓎' in msg and cid == chat_id:
                     try:
                         bot.editMessageText(msg, chat_id, msg_id, parse_mode='HTML', disable_web_page_preview=True)
                     except:
@@ -465,7 +463,7 @@ def main():
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
         try:
-            msg = f"😎Restarted successfully❗\n📅DATE: {date}\n⌚TIME: {time}\n🌐TIMEZONE: {timez}\n"
+            msg = f"ℛℯ𝓈𝓉𝒶𝓇𝓉ℯ𝒹 𝓈𝓊𝒸𝒸ℯ𝓈𝓈𝒻𝓊𝓁𝓁𝓎\n"
             bot.edit_message_text(msg, chat_id, msg_id)
         except:
             pass        
@@ -493,7 +491,7 @@ def main():
     dispatcher.add_handler(stats_handler)
     dispatcher.add_handler(log_handler)
     updater.start_polling(drop_pending_updates=IGNORE_PENDING_REQUESTS)
-    LOGGER.info("💥𝐁𝐨𝐭 𝐒𝐭𝐚𝐫𝐭𝐞𝐝❗")
+    LOGGER.info("ℬℴ𝓉 ℛℯ𝓈𝓉𝒶𝓇𝓉ℯ𝒹")
     signal(SIGINT, exit_clean_up)
 
 app.start()
